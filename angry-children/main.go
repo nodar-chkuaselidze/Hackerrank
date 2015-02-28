@@ -26,7 +26,7 @@ func main() {
 	unfairness = maxMin(numbers[0:K])
 
 	for i := 1; i <= N-K; i++ {
-		unfair := maxMin(numbers[i : K+i])
+		unfair := numbers[K+i-1] - numbers[i]
 
 		if unfairness > unfair {
 			unfairness = unfair
@@ -34,8 +34,4 @@ func main() {
 	}
 
 	fmt.Println(unfairness)
-}
-
-func maxMin(X []int) int {
-	return X[len(X)-1] - X[0]
 }
