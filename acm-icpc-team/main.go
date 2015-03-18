@@ -49,12 +49,6 @@ func main() {
 	fmt.Println(maxCount)
 }
 
-func countOnes() uint {
-	var count uint = 0
-
-	return count
-}
-
 type Skills struct {
 	skills []uint64
 	count  uint
