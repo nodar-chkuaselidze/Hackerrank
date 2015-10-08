@@ -18,7 +18,7 @@ func main() {
 		}
 	}
 
-	printMatrix(matrix)
+	//printMatrix(matrix)
 
 	layersCount := min(M, N) / 2
 
@@ -26,7 +26,9 @@ func main() {
 	ymin := 0
 
 	for i := 0; i < layersCount; i++ {
-		for j := 0; j < R; j++ {
+		layerLength := ((N - xmin) * 2) + ((M - ymin) * 2) - 4
+
+		for j := 0; j < R%layerLength; j++ {
 			rotateLayerOnce(matrix, xmin, ymin, M, N)
 		}
 		M--
@@ -35,7 +37,7 @@ func main() {
 		ymin++
 	}
 
-	fmt.Println("----")
+	//fmt.Println("----")
 	printMatrix(matrix)
 }
 
