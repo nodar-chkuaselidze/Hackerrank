@@ -19,26 +19,24 @@ func main() {
 	}
 
 	printMatrix(matrix)
-	for i := 0; i < R; i++ {
-		rotateOnce(matrix, M, N)
-	}
-	fmt.Println("----")
-	printMatrix(matrix)
-}
 
-func rotateOnce(matrix [][]int, A, B int) {
-	layersCount := min(A, B) / 2
+	layersCount := min(M, N) / 2
 
 	xmin := 0
 	ymin := 0
 
 	for i := 0; i < layersCount; i++ {
-		rotateLayerOnce(matrix, xmin, ymin, A, B)
-		A--
-		B--
+		for j := 0; j < R; j++ {
+			rotateLayerOnce(matrix, xmin, ymin, M, N)
+		}
+		M--
+		N--
 		xmin++
 		ymin++
 	}
+
+	fmt.Println("----")
+	printMatrix(matrix)
 }
 
 func rotateLayerOnce(matrix [][]int, xmin, ymin, A, B int) {
